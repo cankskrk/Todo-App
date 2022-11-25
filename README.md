@@ -2,4 +2,4 @@
 
 <br>
 
-![Todo App](./public/images/App-Screenshot.png)
+![Todo App](./public/images/todo-app-ss.png)

@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 const pageController = require('./controllers/pageController');
 const operationController = require('./controllers/operationController');
+const Task = require('./models/TodoList');
 
 // Template Engine
 app.set('view engine', 'ejs');
@@ -30,8 +31,11 @@ mongooose
   });
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('main');
+app.get('/', async (req, res) => {
+  const task = await Task.find({});
+  res.render('main', {
+    task,
+  });
 });
 
 app.post('/', (req, res) => {
