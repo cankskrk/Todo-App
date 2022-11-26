@@ -31,18 +31,8 @@ mongooose
   });
 
 // Routes
-app.get('/', async (req, res) => {
-  const task = await Task.find({});
-  res.render('main', {
-    task,
-  });
-});
-
-app.post('/', (req, res) => {
-  const task = req.body.task;
-  console.log(task);
-  res.redirect('/');
-});
+app.get('/', pageController.getPage);
+app.post('/', operationController.postTask);
 
 // Listen PORT
 app.listen(PORT, () => {
