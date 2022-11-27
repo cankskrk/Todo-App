@@ -31,7 +31,8 @@ mongooose
   });
 
 // Routes
-app.get('/', pageController.getPage);
+app.get('/', pageController.getMainPage);
+app.get('/completed-tasks', pageController.getCompletedPage);
 app.post('/', operationController.postTask);
 
 // Listen PORT
