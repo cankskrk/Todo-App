@@ -36,7 +36,7 @@ app.get('/', pageController.getMainPage);
 app.get('/completed-tasks', pageController.getCompletedPage);
 app.post('/', operationController.postTask);
 app.post('/completed-tasks/:id', operationController.restoreTask);
-app.post('/done/:id', operationController.doneTask);
+app.post('/doneTask/:id', operationController.doneTask);
 
 // Listen PORT
 app.listen(PORT, () => {

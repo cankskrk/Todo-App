@@ -65,19 +65,21 @@
                           </h6>
                         </td>
                         <td class="align-middle">
-                          <a href="/done?<%= task[i]._id %>&?_method=PUT" data-mdb-toggle="tooltip" title="Done"
-                            ><i class="fas fa-check fa-lg text-success me-4"></i
-                          ></a>
-                          <a href="#!" data-mdb-toggle="tooltip" title="Remove"
-                            ><i
-                              class="fas fa-solid fa-trash fa-lg text-warning me-4"
-                            ></i
-                          ></a>
-                          <a href="#"
-                            ><i
-                              class="fa-solid fa-pen-to-square fa-lg text-primary"
-                            ></i
-                          ></a>
+                          <form action="/doneTask/<%= task[i]._id %>" method="post">
+                            <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Done">
+                              <i class="fas fa-check fa-lg text-success me-4"></i>
+                            </button>
+                          </form>
+                          <form action="" method="post">
+                            <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Remove">
+                              <i class="fas fa-solid fa-trash fa-lg text-warning me-4"></i>
+                            </button>
+                          </form>
+                          <form action="" method="post">
+                            <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Edit">
+                              <i class="fa-solid fa-pen-to-square fa-lg text-primary"></i>
+                            </button>
+                          </form>
                         </td>
                       </tr>
                     </tbody>
