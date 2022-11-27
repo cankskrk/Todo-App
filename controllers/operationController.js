@@ -8,3 +8,12 @@ exports.postTask = async (req, res) => {
   });
   res.redirect('/');
 };
+
+exports.restoreTask = async (req, res) => {
+  const restoreCompletedTask = await Task.findById(req.params.id);
+  await Task.create({
+    ...restoreCompletedTask,
+  });
+  await Task.findByIdAndRemove(req.params.id);
+  res.redirect('/completed-tasks');
+};

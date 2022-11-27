@@ -9,7 +9,7 @@ exports.getMainPage = async (req, res) => {
 };
 
 exports.getCompletedPage = async (req, res) => {
-  const completedtask = await Task.find({});
+  const completedtask = await CompletedTask.find({});
   res.render('completed', {
     completedtask,
   });

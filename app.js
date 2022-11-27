@@ -34,6 +34,7 @@ mongooose
 app.get('/', pageController.getMainPage);
 app.get('/completed-tasks', pageController.getCompletedPage);
 app.post('/', operationController.postTask);
+app.post('/completed-tasks/:id', operationController.restoreTask);
 
 // Listen PORT
 app.listen(PORT, () => {
