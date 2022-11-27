@@ -16,6 +16,7 @@ app.set('view engine', 'ejs');
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 
 // Connect DB
 mongooose
@@ -35,6 +36,7 @@ app.get('/', pageController.getMainPage);
 app.get('/completed-tasks', pageController.getCompletedPage);
 app.post('/', operationController.postTask);
 app.post('/completed-tasks/:id', operationController.restoreTask);
+app.post('/done/:id', operationController.doneTask);
 
 // Listen PORT
 app.listen(PORT, () => {
