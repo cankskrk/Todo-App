@@ -10,20 +10,15 @@ exports.postTask = async (req, res) => {
 };
 
 exports.doneTask = async (req, res) => {
-  let doneTask = await Task.findById(req.params.id);
-  console.log(doneTask);
-  // await Task.findByIdAndRemove(req.params.id);
-  await CompletedTask.create({
-    ...doneTask,
-  });
+  const { task, priority } = await Task.findById(req.params.id);
+  await CompletedTask.create({ task, priority });
+  await Task.findByIdAndRemove(req.params.id);
   res.redirect('/');
 };
 
 exports.restoreTask = async (req, res) => {
-  const restoreCompletedTask = await Task.findById(req.params.id);
-  await Task.create({
-    ...restoreCompletedTask,
-  });
+  const { task, priority } = await CompletedTask.findById(req.params.id);
+  await Task.create({ task, priority });
   await CompletedTask.findByIdAndRemove(req.params.id);
   res.redirect('/completed-tasks');
 };

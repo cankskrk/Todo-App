@@ -68,38 +68,17 @@
                           </td>
                         <% } %> 
                         <td class="align-middle">
-                          <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Restore">
-                            <i class="fa-solid fa-rotate-left fa-lg text-success"></i>
-                          </button>
+                          <form action="/completed-tasks-restore/<%= completedtask[i]._id %>" method="post">
+                            <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Restore">
+                              <i class="fa-solid fa-rotate-left fa-lg text-success"></i>
+                            </button>
+                          </form>
                         </td>
                       </tr>
                     <% } %> 
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div>
-              <form action="/" method="post">
-                <div class="input-group mt-5">
-                  <input
-                    type="text"
-                    name="task"
-                    autocomplete="off"
-                    class="form-control"
-                    placeholder="Tasks you will do..."
-                    aria-label="Tasks you will do"
-                  />
-                  <select class="form-select w-25" name="priority">
-                    <option selected>Choose a Priority</option>
-                    <option value="High Priority">High Priority</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Low Priority">Low Priority</option>
-                  </select>
-                  <button class="btn btn-danger ps-4 pe-4" type="submit">
-                    Add
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </div>

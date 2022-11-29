@@ -65,12 +65,12 @@
                           </h6>
                         </td>
                         <td class="align-middle">
-                          <form action="/doneTask/<%= task[i]._id %>" method="post">
+                          <form action="/task-done/<%= task[i]._id %>" method="post">
                             <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Done">
                               <i class="fas fa-check fa-lg text-success me-4"></i>
                             </button>
                           </form>
-                          <form action="" method="post">
+                          <form action="/task-remove/<%= task[i]._id %>" method="post">
                             <button class="btn" type="submit" data-mdb-toggle="tooltip" title="Remove">
                               <i class="fas fa-solid fa-trash fa-lg text-warning me-4"></i>
                             </button>
