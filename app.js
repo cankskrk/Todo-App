@@ -8,6 +8,7 @@ const PORT = 3000;
 const pageController = require('./controllers/pageController');
 const operationController = require('./controllers/operationController');
 const Task = require('./models/TodoList');
+const CompletedTask = require('./models/CompletedList');
 
 // Template Engine
 app.set('view engine', 'ejs');

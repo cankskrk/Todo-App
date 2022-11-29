@@ -10,11 +10,12 @@ exports.postTask = async (req, res) => {
 };
 
 exports.doneTask = async (req, res) => {
-  const doneTask = await Task.findById(req.params.id);
+  let doneTask = await Task.findById(req.params.id);
+  console.log(doneTask);
+  // await Task.findByIdAndRemove(req.params.id);
   await CompletedTask.create({
     ...doneTask,
   });
-  await Task.findByIdAndRemove(req.params.id);
   res.redirect('/');
 };
 
