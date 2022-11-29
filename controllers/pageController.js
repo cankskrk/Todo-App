@@ -14,3 +14,10 @@ exports.getCompletedPage = async (req, res) => {
     completedtask,
   });
 };
+
+exports.editTaskPage = async (req, res) => {
+  const editTask = await Task.findById(req.params.id);
+  res.render('edit', {
+    editTask,
+  });
+};

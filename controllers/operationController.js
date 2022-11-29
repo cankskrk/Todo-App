@@ -22,3 +22,16 @@ exports.restoreTask = async (req, res) => {
   await CompletedTask.findByIdAndRemove(req.params.id);
   res.redirect('/completed-tasks');
 };
+
+exports.removeTask = async (req, res) => {
+  await Task.findByIdAndRemove(req.params.id);
+  res.redirect('/');
+};
+
+exports.editTask = async (req, res) => {
+  const editTask = await Task.findOne({ _id: req.params.id });
+  editTask.task = req.body.task;
+  editTask.priority = req.body.priority;
+  await editTask.save();
+  res.redirect('/');
+};

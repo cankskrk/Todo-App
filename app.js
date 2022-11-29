@@ -35,9 +35,12 @@ mongooose
 // Routes
 app.get('/', pageController.getMainPage);
 app.get('/completed-tasks', pageController.getCompletedPage);
+app.get('/task-edit/:id', pageController.editTaskPage);
 app.post('/', operationController.postTask);
 app.post('/task-done/:id', operationController.doneTask);
 app.post('/completed-tasks-restore/:id', operationController.restoreTask);
+app.post('/task-remove/:id', operationController.removeTask);
+app.post('/task-edit/:id', operationController.editTask);
 
 // Listen PORT
 app.listen(PORT, () => {
